@@ -1,3 +1,8 @@
+# ACCESS
+
+username = admin@admin.com
+password = Cimahi123
+
 # GUD-FRAMEWORK-PHP
 
 - Composer

@@ -17,7 +17,7 @@
 			$angkatan = new Angkatans;
 			$get = $angkatan->all();
 
-			$data['title'] = 'angkatan';
+			$data['title'] = 'Angkatan';
 			$data['data'] = $angkatan->result_array($get);
 
 			view('page.angkatan', $data);
