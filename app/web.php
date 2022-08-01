@@ -18,6 +18,11 @@
 	// Router
 	$app->add('/', '\Role');
 
+	$app->add('/siswa', '\Siswa');
+	$app->add('/siswa/insert', '\Siswa', 'insert', 'post');
+	$app->add('/siswa/update', '\Siswa', 'update', 'post');
+	$app->add('/siswa/delete', '\Siswa', 'delete', 'post');
+
 	$app->add('/angkatan', '\Angkatan');
 	$app->add('/angkatan/insert', '\Angkatan', 'insert', 'post');
 	$app->add('/angkatan/update', '\Angkatan', 'update', 'post');

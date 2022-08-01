@@ -3,7 +3,7 @@
     <ol class="breadcrumb">
 
         {{-- <li><a href="#"></a></li> --}}
-        <li class="active"><a href="#">Angkatan</a></li>
+        <li class="active"><a href="#">Siswa</a></li>
 
     </ol>
     <div class="container-fluid">
@@ -12,7 +12,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h2>List Angkatan</h2>
+                            <h2>List Siswa</h2>
                             <div class="panel-ctrls"></div>
                         </div>
                         <div class="panel-body">
@@ -27,21 +27,32 @@
                             <table id="example" class="table table-striped table-bordered" cellspacing="0" width="100%">
                                 <thead>
                                     <tr>
+                                        <th>NIS</th>
                                         <th>Nama</th>
+                                        <th>Tempat lahir</th>
+                                        <th>Tanggal lahir</th>
+                                        <th>Alamat</th>
+                                        <th>Tanggal Masuk</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach ($data as $d)
                                         <tr class="odd gradeX">
+                                            <td>{{ $d['nis'] }}</td>
                                             <td>{{ $d['nama'] }}</td>
+                                            <td>{{ $d['tempat_lahir'] }}</td>
+                                            <td>{{ $d['tanggal_lahir'] }}</td>
+                                            <td>{{ $d['alamat'] }}</td>
+                                            <td>{{ $d['tanggal_masuk'] }}</td>
                                             <td>
                                                 <button class="btn btn-danger btn-sm"
                                                     onclick="destroy(`{{ $d['id'] }}`)">
                                                     <i class="fa fa-trash-o"></i> Delete
                                                 </button>
                                                 <button class="btn btn-primary btn-sm"
-                                                    onclick="update(`{{ $d['id'] }}`, `{{ $d['nama'] }}`)">
+                                                    onclick="update(`{{ $d['id'] }}`, `{{ $d['nis'] }}`, `{{ $d['nama'] }}`, `{{ $d['tempat_lahir'] }}`,
+                                                    `{{ $d['tanggal_lahir'] }}`, `{{ $d['alamat'] }}`, `{{ $d['tanggal_masuk'] }}`)">
                                                     <i class="fa fa-pencil"></i> Update
                                                 </button>
                                             </td>
@@ -73,10 +84,33 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
+                                    <label for="nama"> NIS</label>
+                                    <input type="number" min="10" step="1" value="" class="form-control"
+                                        name="nis" placeholder="NIS" required />
+                                </div>
+                                <div class="form-group">
                                     <label for="nama"> Nama</label>
-                                    <input type="number" min="1900" max="2099" step="1"
-                                        value="{{ date('Y') }}" class="form-control" name="nama" placeholder="Nama"
-                                        required />
+                                    <input type="text" value="" class="form-control" name="nama"
+                                        placeholder="Nama" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama"> Alamat</label>
+                                    <textarea value="" class="form-control" name="alamat" placeholder="Alamat" required></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama"> Tempat Lahir</label>
+                                    <input type="text" value="" class="form-control" name="tempat_lahir"
+                                        placeholder="Tempat Lahir" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama"> Tanggal Lahir</label>
+                                    <input type="date" value="" class="form-control" name="tanggal_lahir"
+                                        placeholder="Tanggal Lahir" required />
+                                </div>
+                                <div class="form-group">
+                                    <label for="nama"> Tanggal Masuk</label>
+                                    <input type="date" value="" class="form-control" name="tanggal_masuk"
+                                        placeholder="Tanggal Masuk" required />
                                 </div>
                             </div>
                         </div>
@@ -115,7 +149,7 @@
                             toastr.clear()
 
                             $.ajax({
-                                url: '{{ base_url }}angkatan/delete',
+                                url: '{{ base_url }}siswa/delete',
                                 method: 'post',
                                 data: {
                                     id: id,
@@ -147,10 +181,15 @@
         }
 
         // Update button click
-        let update = (id, nama) => {
+        let update = (id, nis, nama, tempat_lahir, tanggal_lahir, alamat, tanggal_masuk) => {
             postType = 'update'
             $('#id').val(id)
+            $('input[name="nis"]').val(nis)
             $('input[name="nama"]').val(nama)
+            $('input[name="tempat_lahir"]').val(tempat_lahir)
+            $('input[name="tanggal_lahir"]').val(tanggal_lahir)
+            $('input[name="tanggal_masuk"]').val(tanggal_masuk)
+            $('textarea[name="alamat"]').val(alamat)
             $('#myModalLabel').html('Update {{ $title }}')
             $('#myModal').modal('show')
         }
@@ -168,8 +207,8 @@
                 ev.preventDefault()
 
                 let url = postType == 'create' ?
-                    '{{ base_url }}angkatan/insert' :
-                    '{{ base_url }}angkatan/update';
+                    '{{ base_url }}siswa/insert' :
+                    '{{ base_url }}siswa/update';
 
                 $.ajax({
                     url: url,
