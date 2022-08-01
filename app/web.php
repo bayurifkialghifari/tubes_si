@@ -23,6 +23,11 @@
 	$app->add('/siswa/update', '\Siswa', 'update', 'post');
 	$app->add('/siswa/delete', '\Siswa', 'delete', 'post');
 
+	$app->add('/kelas_siswa', '\KelasSiswa');
+	$app->add('/kelas_siswa/insert', '\KelasSiswa', 'insert', 'post');
+	$app->add('/kelas_siswa/update', '\KelasSiswa', 'update', 'post');
+	$app->add('/kelas_siswa/delete', '\KelasSiswa', 'delete', 'post');
+
 	$app->add('/angkatan', '\Angkatan');
 	$app->add('/angkatan/insert', '\Angkatan', 'insert', 'post');
 	$app->add('/angkatan/update', '\Angkatan', 'update', 'post');
@@ -32,6 +37,11 @@
 	$app->add('/role/insert', '\Role', 'insert', 'post');
 	$app->add('/role/update', '\Role', 'update', 'post');
 	$app->add('/role/delete', '\Role', 'delete', 'post');
+
+	$app->add('/kelas', '\Kelas');
+	$app->add('/kelas/insert', '\Kelas', 'insert', 'post');
+	$app->add('/kelas/update', '\Kelas', 'update', 'post');
+	$app->add('/kelas/delete', '\Kelas', 'delete', 'post');
 
 	$app->add('/user', '\User');
 	$app->add('/user/insert', '\User', 'insert', 'post');
