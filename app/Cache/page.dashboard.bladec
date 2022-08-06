@@ -1,0 +1,47 @@
+<?php $_shouldextend[1]=1; ?>
+<?php $this->startSection('content'); ?>
+ <ol class="breadcrumb">
+
+ <?php /* <li><a href="#"></a></li> */ ?>
+ <li class="active"><a href="#">Dashboard</a></li>
+
+ </ol>
+ <div class="container-fluid">
+ <div data-widget-group="group1">
+ <div class="row">
+ <div class="col-md-12">
+ <div class="panel panel-default">
+ <div class="panel-heading">
+ <div class="panel-ctrls"></div>
+ </div>
+ <div class="panel-body">
+ <button class="btn btn-primary btn-lg">
+ Jumlah Siswa <br>
+ <?php echo \htmlentities(count($dsiswa), ENT_QUOTES, 'UTF-8', false); ?>
+
+ </button>
+ <button class="btn btn-primary btn-lg">
+ Jumlah Angkatan <br>
+ <?php echo \htmlentities(count($dangkatan), ENT_QUOTES, 'UTF-8', false); ?>
+
+ </button>
+ <button class="btn btn-primary btn-lg">
+ Jumlah Kelas <br>
+ <?php echo \htmlentities(count($dkelas), ENT_QUOTES, 'UTF-8', false); ?>
+
+ </button>
+ <button class="btn btn-primary btn-lg">
+ Jumlah User <br>
+ <?php echo \htmlentities(count($duser), ENT_QUOTES, 'UTF-8', false); ?>
+
+ </button>
+ </div>
+ <div class="panel-footer"></div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div> <!-- .container-fluid -->
+<?php $this->stopSection(); ?>
+
+<?php if (isset($_shouldextend[1])) { echo $this->runChild('layouts.plain'); } ?>

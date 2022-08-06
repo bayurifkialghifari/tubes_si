@@ -64,8 +64,7 @@ $request = new Request();
 
             <li class="dropdown toolbar-icon-bg">
                 <a href="#" class="dropdown-toggle username" data-toggle="dropdown">
-                    <img class="img-circle" src="http://via.placeholder.com/300&text={{ $request->sess('name') }}"
-                        alt="" />
+                    <img class="img-circle" src="https://www.w3schools.com/howto/img_avatar.png" alt="" />
                 </a>
                 <ul class="dropdown-menu userinfo arrow">
                     {{-- <li><a href="#/"><i class="ti ti-user"></i><span>Profile</span><span
@@ -95,7 +94,7 @@ $request = new Request();
                             <div class="widget-body">
                                 <div class="userinfo">
                                     <div class="avatar">
-                                        <img src="http://via.placeholder.com/300&text={{ $request->sess('name') }}"
+                                        <img src="https://www.w3schools.com/howto/img_avatar.png"
                                             class="img-responsive img-circle">
                                     </div>
                                     <div class="info">

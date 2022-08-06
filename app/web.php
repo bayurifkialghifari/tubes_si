@@ -16,7 +16,7 @@
 	*/
 
 	// Router
-	$app->add('/', '\Role');
+	$app->add('/', '\Dashboard');
 
 	$app->add('/siswa', '\Siswa');
 	$app->add('/siswa/insert', '\Siswa', 'insert', 'post');
