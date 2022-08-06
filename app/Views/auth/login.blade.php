@@ -59,6 +59,8 @@
                                     </div>
                                 </div>
                             </div>
+                            username = admin@admin.com <br>
+                            password = Cimahi123
 
                             {{-- <div class="form-group mb-n">
                                 <div class="col-xs-12">
